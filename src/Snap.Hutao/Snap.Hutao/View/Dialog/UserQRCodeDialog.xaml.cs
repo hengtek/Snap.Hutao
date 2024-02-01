@@ -145,6 +145,14 @@ internal sealed partial class UserQRCodeDialog : ContentDialog, IDisposable
                     ArgumentNullException.ThrowIfNull(uidGameToken);
                     return uidGameToken;
                 }
+
+                // only available when game id is 4
+                else if (query is { ReturnCode: 0, Data: { Stat: "Confirmed", Payload.Proto: "Combo" } })
+                {
+                    ComboTokenWrapper? comboTokenWrapper = JsonSerializer.Deserialize<ComboTokenWrapper>(query.Data.Payload.Raw);
+                    ArgumentNullException.ThrowIfNull(comboTokenWrapper);
+                    return UidGameToken.From(comboTokenWrapper);
+                }
                 else if (query.ReturnCode == (int)KnownReturnCode.QrCodeExpired)
                 {
                     break;
