@@ -377,31 +377,36 @@ internal sealed partial class AchievementViewModel : Abstraction.ViewModel, INav
     [Command("SearchAchievementCommand")]
     private void UpdateAchievementsFilterBySearch(string? search)
     {
-        if (Achievements is not null)
+        if (Achievements is null)
         {
-            SetProperty(ref selectedAchievementGoal, null);
-
-            if (!string.IsNullOrEmpty(search))
-            {
-                if (uint.TryParse(search, out uint achievementId))
-                {
-                    Achievements.Filter = view => view.Inner.Id == achievementId;
-                    return;
-                }
-
-                if (VersionRegex().IsMatch(search))
-                {
-                    Achievements.Filter = view => view.Inner.Version == search;
-                    return;
-                }
-
-                Achievements.Filter = view =>
-                {
-                    return view.Inner.Title.Contains(search, StringComparison.CurrentCultureIgnoreCase)
-                        || view.Inner.Description.Contains(search, StringComparison.CurrentCultureIgnoreCase);
-                };
-            }
+            return;
         }
+
+        SetProperty(ref selectedAchievementGoal, null, nameof(SelectedAchievementGoal));
+
+        if (string.IsNullOrEmpty(search))
+        {
+            Achievements.Filter = default;
+            return;
+        }
+
+        if (uint.TryParse(search, out uint achievementId))
+        {
+            Achievements.Filter = view => view.Inner.Id == achievementId;
+            return;
+        }
+
+        if (VersionRegex().IsMatch(search))
+        {
+            Achievements.Filter = view => view.Inner.Version == search;
+            return;
+        }
+
+        Achievements.Filter = view =>
+        {
+            return view.Inner.Title.Contains(search, StringComparison.CurrentCultureIgnoreCase)
+                || view.Inner.Description.Contains(search, StringComparison.CurrentCultureIgnoreCase);
+        };
     }
 
     private void UpdateAchievementsFinishPercent()

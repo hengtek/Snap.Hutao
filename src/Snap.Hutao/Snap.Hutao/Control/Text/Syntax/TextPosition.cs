@@ -22,13 +22,13 @@ internal readonly struct TextPosition
         get => End - Start;
     }
 
-    public TextPosition LeftShift(int offset)
+    public static TextPosition operator <<(TextPosition position, int offset)
     {
-        return new(Start - offset, End - offset);
+        return new(position.Start - offset, position.End - offset);
     }
 
-    public TextPosition RightShift(int offset)
+    public static TextPosition operator >>(TextPosition position, int offset)
     {
-        return new(Start + offset, End + offset);
+        return new(position.Start + offset, position.End + offset);
     }
 }

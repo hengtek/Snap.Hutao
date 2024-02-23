@@ -201,10 +201,10 @@
   <data name="LaunchGameTitle" xml:space="preserve">
     <value>选择账号并启动</value>
   </data>
-  <data name="MetadataSpecialNameMetaAvatarSexProInfoPronounBoyGirlD" xml:space="preserve">
+  <data name="MetadataSpecialNameMateAvatarSexProInfoPronounBoyGirlD" xml:space="preserve">
     <value>&lt;color=#1E90FF&gt;王子&lt;/color&gt;/&lt;color=#FFB6C1&gt;公主&lt;/color&gt;</value>
   </data>
-  <data name="MetadataSpecialNameMetaAvatarSexProInfoPronounBoyGirlFirst" xml:space="preserve">
+  <data name="MetadataSpecialNameMateAvatarSexProInfoPronounBoyGirlFirst" xml:space="preserve">
     <value>&lt;color=#1E90FF&gt;我&lt;/color&gt;/&lt;color=#FFB6C1&gt;我&lt;/color&gt;</value>
   </data>
   <data name="MetadataSpecialNameNickname" xml:space="preserve">

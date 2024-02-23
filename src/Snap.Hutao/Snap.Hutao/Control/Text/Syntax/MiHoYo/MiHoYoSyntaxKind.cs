@@ -8,6 +8,7 @@ internal enum MiHoYoSyntaxKind
     None,
     Root,
     PlainText,
+    InterpolatedText,
     ColorText,
     ItalicText,
 }

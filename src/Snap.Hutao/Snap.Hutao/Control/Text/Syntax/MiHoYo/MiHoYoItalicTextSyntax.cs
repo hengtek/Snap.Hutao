@@ -5,11 +5,6 @@ namespace Snap.Hutao.Control.Text.Syntax.MiHoYo;
 
 internal sealed class MiHoYoItalicTextSyntax : MiHoYoXmlElementSyntax
 {
-    public MiHoYoItalicTextSyntax(string text, int start, int end)
-        : base(MiHoYoSyntaxKind.ItalicText, text, start, end)
-    {
-    }
-
     public MiHoYoItalicTextSyntax(string text, in TextPosition position)
         : base(MiHoYoSyntaxKind.ItalicText, text, position)
     {

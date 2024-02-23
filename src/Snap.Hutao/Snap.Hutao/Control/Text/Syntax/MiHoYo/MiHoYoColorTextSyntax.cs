@@ -5,12 +5,6 @@ namespace Snap.Hutao.Control.Text.Syntax.MiHoYo;
 
 internal sealed class MiHoYoColorTextSyntax : MiHoYoXmlElementSyntax
 {
-    public MiHoYoColorTextSyntax(MiHoYoColorKind colorKind, string text, int start, int end)
-        : base(MiHoYoSyntaxKind.ColorText, text, start, end)
-    {
-        ColorKind = colorKind;
-    }
-
     public MiHoYoColorTextSyntax(MiHoYoColorKind colorKind, string text, in TextPosition position)
         : base(MiHoYoSyntaxKind.ColorText, text, position)
     {
@@ -45,5 +39,5 @@ internal sealed class MiHoYoColorTextSyntax : MiHoYoXmlElementSyntax
         }
     }
 
-    public ReadOnlySpan<char> ColorSpan { get => Text.AsSpan()[ColorPosition.Start..ColorPosition.End]; }
+    public ReadOnlySpan<char> ColorSpan { get => Text.AsSpan(ColorPosition); }
 }

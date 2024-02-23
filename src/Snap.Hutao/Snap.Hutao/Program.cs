@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 using Microsoft.UI.Xaml;
+using Snap.Hutao.Win32.Foundation;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using WinRT;
@@ -33,7 +34,7 @@ public static partial class Program
     }
 
     [LibraryImport("Microsoft.WindowsAppRuntime.dll", EntryPoint = "WindowsAppRuntime_EnsureIsLoaded")]
-    private static partial int WindowsAppRuntimeEnsureIsLoaded();
+    private static partial HRESULT WindowsAppRuntimeEnsureIsLoaded();
 
     [LibraryImport("Microsoft.ui.xaml.dll")]
     private static partial void XamlCheckProcessRequirements();

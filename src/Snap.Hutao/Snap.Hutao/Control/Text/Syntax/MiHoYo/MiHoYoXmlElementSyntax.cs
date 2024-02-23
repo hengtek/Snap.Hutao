@@ -5,11 +5,6 @@ namespace Snap.Hutao.Control.Text.Syntax.MiHoYo;
 
 internal abstract class MiHoYoXmlElementSyntax : MiHoYoSyntaxNode
 {
-    public MiHoYoXmlElementSyntax(MiHoYoSyntaxKind kind, string text, int start, int end)
-        : base(kind, text, start, end)
-    {
-    }
-
     public MiHoYoXmlElementSyntax(MiHoYoSyntaxKind kind, string text, in TextPosition position)
         : base(kind, text, position)
     {

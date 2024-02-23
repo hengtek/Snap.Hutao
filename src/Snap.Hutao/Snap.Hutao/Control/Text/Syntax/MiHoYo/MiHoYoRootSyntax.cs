@@ -9,4 +9,8 @@ internal sealed class MiHoYoRootSyntax : MiHoYoSyntaxNode
         : base(MiHoYoSyntaxKind.Root, text, start, end)
     {
     }
+
+    public bool IsInterpolated { get => Text.AsSpan()[0] is '#'; }
+
+    public TextPosition ContentPosition { get => IsInterpolated ? new(Position.Start + 1, Position.End) : Position; }
 }
